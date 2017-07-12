@@ -1,0 +1,927 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            
+                <title>Have Jupyter running on AWS even when you&#39;re not there!</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.25.1" />
+        
+
+
+        
+            <meta name="author" content="Michael Carrie">
+        
+        
+            <meta name="description" content="Jupyter on EC2 Instance">
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Have Jupyter running on AWS even when you&#39;re not there!"/>
+<meta name="twitter:title" content="Have Jupyter running on AWS even when you&#39;re not there!"/>
+<meta name="twitter:description" content="Jupyter on EC2 Instance"/>
+
+
+        <meta property="og:title" content="Have Jupyter running on AWS even when you&#39;re not there!" />
+<meta property="og:description" content="Jupyter on EC2 Instance" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://dataplyr.com/blog/aws-post/" />
+
+
+
+<meta property="article:published_time" content="2017-04-22T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-04-22T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Have Jupyter running on AWS even when you&#39;re not there!">
+<meta itemprop="description" content="Jupyter on EC2 Instance">
+
+
+<meta itemprop="dateModified" content="2017-04-22T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="648">
+
+
+
+<meta itemprop="keywords" content="" />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-102497772-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+        <h2><a href="/">DataPlyr</i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/blog">
+                        
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories">
+                        Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about">
+                        About
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://dataplyr.com/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://dataplyr.com/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/blog">
+                            <h3>
+                                
+                                    <i class="fa fa-newspaper-o">&nbsp;</i>
+                                
+                                Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            <h3>
+                                
+                                Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            <h3>
+                                
+                                About
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://dataplyr.com/blog/basketball-chemistry/"><p>What is Chemistry?</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://dataplyr.com/blog/aws-post/"><p>Have Jupyter running on AWS even when you&#39;re not there!</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://dataplyr.com/blog/firstkernel/"><p>Who is the Murderer? (Exploratory Analysis)</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://dataplyr.com/blog/first-post/"><p>First Week at Metis</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://dataplyr.com/post/2015-07-23-r-rmarkdown/"><p>Hello R Markdown</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+    <header>
+    <div class="title">
+        
+            <h1><a href="http://dataplyr.com/blog/aws-post/">Have Jupyter running on AWS even when you&#39;re not there!</a></h1>
+            
+        
+        
+            <p>Jupyter on EC2 Instance</p>
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2017-04-22'>
+            April 22, 2017</time>
+        <span class="author">Michael Carrie</span>
+        
+            <p>4 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+    <section id="social-share">
+        <ul class="icons">
+            
+        </ul>
+    </section>
+    
+    
+
+    
+        
+        
+
+
+
+
+    
+    
+        
+    
+
+
+        
+
+        <a href="http://dataplyr.com/blog/aws-post/" class="image featured">
+            <img src="/img/2017/04/pic5.png" alt="" />
+        </a>
+    
+
+
+    <div id="content">
+        <p>Setting up a Jupyter notebook on an AWS ec2 instance to be able to run even when you close your laptop has to be one of the most useful tools ever! However, there&rsquo;s not enough information online on how to do it.</p>
+
+<p>From bits and pieces from all over the internet, here&rsquo;s how you do it step by step..</p>
+
+<p><strong>Step 1: Setting up SSH</strong>
+Make sure you have an ssh key first.  You can do that by typing in the command line:</p>
+
+<pre><code class="language-commandline">ls ~/.ssh/*id_rsa*
+</code></pre>
+
+<p>If there is not a file there, generate an ssh key by typing</p>
+
+<pre><code class="language-commandline">ssh-keygen -t rsa
+</code></pre>
+
+<p>When asked where to save, save it in:<br />
+<code>/Users/username/.ssh/id_rsa</code></p>
+
+<p><strong>Step 2: Setting up AWS Account</strong>
+ Sign up for an AWS account if you don&rsquo;t have one. If you do, sign in and click on EC2 under the compute tab.</p>
+
+<ul>
+<li>Next click on <code>Network &amp; Security</code></li>
+<li>Click on <code>Key Pairs</code></li>
+<li>Click on <code>Import key pair</code></li>
+<li>Give it a name <code>id_rsa</code></li>
+</ul>
+
+<p>Go on your terminal and type <code>cat ~/.ssh/id_rsa.pub</code></p>
+
+<p>Copy and paste output into the wndow and press Import</p>
+
+<p><strong>Step 3: Create Instance</strong>
+ * Go to Instances. Choose a server(I chose Ubuntu Server)</p>
+
+<ul>
+<li><p>Choose an instance type(Choose t2.micro instance because it&rsquo;s free for a year)</p></li>
+
+<li><p>Click Next:Configure Instance Details:</p></li>
+
+<li><p>Click Next: Add Storage</p></li>
+
+<li><p>Change Size (GIB) from 8 to 30 and keep the rest of the fields the same.</p></li>
+
+<li><p>Click Next: Add Tags</p></li>
+
+<li><p>Click Next: Configure Security Group</p></li>
+
+<li><p>Change or keep network to look like this(You can change your permissions later):</p></li>
+</ul>
+
+<p><img src="/photos/aws_permis.png" alt="awspermis" /></p>
+
+<ul>
+<li>Click Review and Launch. Choose an existing key pair. Select id_rsa and check the I acknowledge box.</li>
+</ul>
+
+<p><strong>Step 4: Logging on Instance</strong></p>
+
+<ul>
+<li>Go to Instances and click once on your instance. On the bottom right, there should be a field that said <code>IPv4 Public IP:</code> Copy the IP Address to the right of the field and in your terminal type:
+<br /></li>
+</ul>
+
+<p><code>ssh ubuntu@123.123.123.123</code></p>
+
+<p>The 123.123.123.123 being the IPv4 Public IP that you copied</p>
+
+<ul>
+<li>You may see a message that starts with &ldquo;The Authenticity of host&hellip;&rdquo; Type <code>Yes</code>
+<br /></li>
+</ul>
+
+<p><strong>Step 5: Installing Python and Packages</strong></p>
+
+<ul>
+<li><p>Update Libraries</p>
+
+<pre><code class="language-commandline">sudo apt-get update
+</code></pre></li>
+
+<li><p>Install Python 3</p>
+
+<pre><code class="language-commandline">sudo apt-get install python3 python3-pip
+</code></pre></li>
+
+<li><p>Install Git</p>
+
+<pre><code class="language-commandline">sudo apt-get install git
+</code></pre></li>
+
+<li><p>Install Anaconda</p>
+
+<pre><code class="language-commandline">wget https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh
+</code></pre>
+
+<pre><code class="language-commandline">sudo bash Anaconda3-4.3.1-Linux-x86_64.sh
+</code></pre></li>
+</ul>
+
+<pre><code class="language-commandline">export PATH=~/anaconda3/bin:$PATH
+</code></pre>
+
+<pre><code class="language-commandline">conda update conda
+</code></pre>
+
+<ul>
+<li><p>Fix Permissions if it doesn&rsquo;t work</p>
+
+<pre><code class="language-commandline">sudo chown -R ubuntu /home/ubuntu/anaconda3 
+sudo chmod -R +x /home/ubuntu/anaconda3
+</code></pre></li>
+
+<li><p>Install Jupyter</p>
+
+<pre><code class="language-commandline">conda install jupyter
+</code></pre></li>
+
+<li><p>Install Tmux  (This allows Jupyter to keep on running)</p>
+
+<pre><code class="language-commandline">sudo apt-get install -y tmux
+</code></pre></li>
+</ul>
+
+<p><strong>Step 6: Running Jupyter</strong></p>
+
+<ul>
+<li><p>Create a new tmux instance that runs all the time</p></li>
+
+<li><p>This Command shows active terminals</p>
+
+<pre><code class="language-commandline">tmux ls
+</code></pre></li>
+
+<li><p>Create new terminal(I called mine jup)</p>
+
+<pre><code class="language-commandline">tmux new -s jup
+</code></pre></li>
+
+<li><p>Type in the tmux screen:</p>
+
+<pre><code class="language-commandline">jupyter notebook --no-browser
+</code></pre></li>
+
+<li><p>DONT CLOSE YOUR AWS TERMINAL
+Now on your local computer open up a new terminal and type in (ip is your public Ipv4 from before):</p></li>
+</ul>
+
+<pre><code class="language-commandline">ssh -NL 8157:localhost:8888 ubuntu@123.123.123
+</code></pre>
+
+<ul>
+<li><p>On your local computer go on a web browser and type in localhost:8157</p></li>
+
+<li><p>Copy and paste your token from your ec2 instance into the password or token field. Only copy after the &ldquo;token=&rdquo;
+It should look something like this</p>
+
+<pre><code class="language-commandline">http://localhost:8888/?token=349hg3894gh3489gj398ggg45g
+</code></pre></li>
+
+<li><p>If you&rsquo;re on a mac on the ec2 instance, type control + b d to detach from the tmux. You might have to practice a couple times. I usual hold control and b. Quickly let go and click d. Never type exit on a tmux screen otherwise you will lose your running jupyter notebook. You may close your aws instance now by typing exit after you&rsquo;ve detached from your tmux.</p></li>
+</ul>
+
+<p>Now you can close your your laptop, have your computations running, go wherever and your jupyter notebook will be running. If you ever want to access your notebook you don&rsquo;t have to login to your instance. All you have to do type:</p>
+
+<pre><code class="language-commandline">ssh -NL 8157:localhost:8888 ubuntu@123.123.123
+</code></pre>
+
+<p>on your local terminal. Go on localhost:8157 in a browser and your jupyter notebooks will be there!</p>
+
+    </div>
+
+    <footer>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Categories
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='/categoriesaws'>AWS</a></li>
+    
+        <li><a href='/categoriesjupyter'>Jupyter</a></li>
+    
+        <li><a href='/categoriespython'>Python</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+<ul class="actions pagination">
+    
+        <li><a href="http://dataplyr.com/blog/firstkernel/"
+                class="button big previous">Who is the Murderer? (Exploratory Analysis)</a></li>
+    
+
+    
+        <li><a href="http://dataplyr.com/blog/basketball-chemistry/"
+                class="button big next">What is Chemistry?</a></li>
+    
+</ul>
+
+
+
+    
+        <article class="post">
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </article>
+    
+
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+                
+                    <a href="/" class="logo"><img src="/img/main/logo.jpg" alt="Hugo Future Imperfect" /></a>
+                
+            
+            
+                <header>
+                    <h2>DataPlyr</h2>
+                    <p>Data Science Blog</p>
+                </header>
+            
+            <ul class="icons">
+                
+                
+                    
+<li><a href="//github.com/mcarrie30" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/michaelcarrie" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://dataplyr.com/blog/basketball-chemistry/">What is Chemistry?</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2017-04-24'>
+                                    April 24, 2017</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://dataplyr.com/blog/aws-post/">Have Jupyter running on AWS even when you&#39;re not there!</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2017-04-22'>
+                                    April 22, 2017</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://dataplyr.com/blog/firstkernel/">Who is the Murderer? (Exploratory Analysis)</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2017-04-20'>
+                                    April 20, 2017</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://dataplyr.com/blog/first-post/">First Week at Metis</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2017-04-07'>
+                                    April 7, 2017</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://dataplyr.com/post/2015-07-23-r-rmarkdown/">Hello R Markdown</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2015-07-23'>
+                                    July 23, 2015</time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                /blog/
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/python/">Python</a>
+                                <span style="float:right;">3</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/aws/">AWS</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/jupyter/">Jupyter</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/metis/">Metis</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/r/">R</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/shiny/">Shiny</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+    
+        
+        <section class="blurb">
+            <h2>About</h2>
+            <p>Michael is a Data Scientist with a demonstrated history of working with financial data. Skilled in R, Statistics, Python, Data Analysis, and Machine Learning. Strong professional analytical skills with a Bachelor&#39;s degree focused in Sociology from State University of New York College at Geneseo.</p>
+
+            <ul class="actions">
+                <li><a href="/about/" class="button">Learn More</a></li>
+            </ul>
+        </section>
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+                    
+<li><a href="//github.com/mcarrie30" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/michaelcarrie" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            </ul>
+
+            <p class="copyright">&copy; DataPlyr. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+
