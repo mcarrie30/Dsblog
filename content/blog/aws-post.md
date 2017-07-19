@@ -1,6 +1,6 @@
 +++
 author = "Michael Carrie"
-categories = ["AWS", "Jupyter", "Python"]
+categories = ["AWS", "Jupyter", "Python", "Tutorial"]
 date = "2017-04-22"
 description = "Jupyter on EC2 Instance"
 featured = "pic5.png"

@@ -4,7 +4,7 @@ title = "DataPlyr"
 theme = "hugo-future-imperfect"
 preserveTaxonomyNames = true
 paginate = 3
-disqusShortname = "shortname"
+disqusShortname = ""
 googleAnalytics = "UA-102497772-1"
 
 [params]
