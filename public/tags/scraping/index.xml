@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scraping on DataPlyr</title>
+    <link>/tags/scraping/</link>
+    <description>Recent content in Scraping on DataPlyr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2016 - 2017, Mcarrie; all rights reserved.</copyright>
+    <lastBuildDate>Fri, 21 Apr 2017 13:47:08 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/scraping/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is Chemistry?</title>
+      <link>/blog/2017/04/21/basketball-chemistry/</link>
+      <pubDate>Fri, 21 Apr 2017 13:47:08 +0200</pubDate>
+      
+      <guid>/blog/2017/04/21/basketball-chemistry/</guid>
+      <description>Playoffs in the NBA just started, and I hear reporters on the news talking about chemistry all the time. However, what exactly is chemistry? What determines if teammates have good chemistry?
+I decide to google &amp;ldquo;NBA Chemistry&amp;rdquo;, and the consensus online is &amp;ldquo;chemistry&amp;rdquo;, is actually really hard to define, because it is not quantified yet. So, how do you measure chemistry, when it could mean a million different variables. I decided to take a stab at it by using machine learning methods.</description>
+    </item>
+    
+  </channel>
+</rss>

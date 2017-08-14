@@ -1,16 +1,12 @@
 +++
-author = "Michael Carrie"
-categories = ["AWS", "Jupyter", "Python", "Tutorial"]
-date = "2017-04-22"
-description = "Jupyter on EC2 Instance"
-featured = "pic5.png"
-featuredalt = ""
-featuredpath = "date"
-linktitle = ""
 title = "Have Jupyter running on AWS even when you're not there!"
-type = "post"
-
+date = "2017-04-22T13:07:31+02:00"
+tags = ["AWS", "Jupyter", "Python"]
+categories = ["Tutorial"]
+banner = "img/banners/pic5.png"
 +++
+
+## Setup
 
 Setting up a Jupyter notebook on an AWS ec2 instance to be able to run even when you close your laptop has to be one of the most useful tools ever! However, there's not enough information online on how to do it.
 
@@ -58,7 +54,8 @@ When asked where to save, save it in:
  
  * Change or keep network to look like this(You can change your permissions later):
 
- ![awspermis](/photos/aws_permis.png)
+
+ ![awspermis](/img/aws_permis.png)
 
  
  *  Click Review and Launch. Choose an existing key pair. Select id_rsa and check the I acknowledge box.

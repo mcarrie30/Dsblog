@@ -3,122 +3,119 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://dataplyr.com/blog/basketball-chemistry/</loc>
-    <lastmod>2017-04-24T00:00:00+00:00</lastmod>
+    <loc>/blog/2017/04/22/aws-post/</loc>
+    <lastmod>2017-04-22T13:07:31+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/blog/aws-post/</loc>
-    <lastmod>2017-04-22T00:00:00+00:00</lastmod>
+    <loc>/blog/2017/04/21/basketball-chemistry/</loc>
+    <lastmod>2017-04-21T13:47:08+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/blog/firstkernel/</loc>
-    <lastmod>2017-04-20T00:00:00+00:00</lastmod>
+    <loc>/blog/2017/04/20/firstkernel/</loc>
+    <lastmod>2017-04-20T21:49:20+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/blog/first-post/</loc>
-    <lastmod>2017-04-07T00:00:00+00:00</lastmod>
+    <loc>/blog/2017/04/07/first_post/</loc>
+    <lastmod>2017-04-07T13:39:46+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/about/</loc>
-    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
+    <loc>/faq/</loc>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/post/2015-07-23-r-rmarkdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://dataplyr.com/categories/aws/</loc>
-    <lastmod>2017-04-22T00:00:00+00:00</lastmod>
+    <loc>/tags/aws/</loc>
+    <lastmod>2017-04-22T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/blog/</loc>
-    <lastmod>2017-04-24T00:00:00+00:00</lastmod>
+    <loc>/blog/</loc>
+    <lastmod>2017-04-22T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/categories/</loc>
-    <lastmod>2017-04-22T00:00:00+00:00</lastmod>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/</loc>
-    <lastmod>2017-04-24T00:00:00+00:00</lastmod>
+    <loc>/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2017-04-22T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/categories/jupyter/</loc>
-    <lastmod>2017-04-22T00:00:00+00:00</lastmod>
+    <loc>/categories/exploratory-analysis/</loc>
+    <lastmod>2017-04-20T21:49:20+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/categories/metis/</loc>
-    <lastmod>2017-04-07T00:00:00+00:00</lastmod>
+    <loc>/tags/jupyter/</loc>
+    <lastmod>2017-04-22T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/tags/plot/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/tags/kaggle/</loc>
+    <lastmod>2017-04-20T21:49:20+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/post/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/categories/machine-learning/</loc>
+    <lastmod>2017-04-21T13:47:08+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/categories/python/</loc>
-    <lastmod>2017-04-24T00:00:00+00:00</lastmod>
+    <loc>/tags/metis/</loc>
+    <lastmod>2017-04-07T13:39:46+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/categories/r/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/categories/metis/</loc>
+    <lastmod>2017-04-07T13:39:46+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/tags/r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/tags/python/</loc>
+    <lastmod>2017-04-22T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/tags/regression/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/tags/ridge-regression/</loc>
+    <lastmod>2017-04-21T13:47:08+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/categories/shiny/</loc>
-    <lastmod>2017-04-24T00:00:00+00:00</lastmod>
+    <loc>/tags/scraping/</loc>
+    <lastmod>2017-04-21T13:47:08+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/tags/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/tags/</loc>
+    <lastmod>2017-04-22T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dataplyr.com/categories/tutorial/</loc>
-    <lastmod>2017-04-22T00:00:00+00:00</lastmod>
+    <loc>/categories/tutorial/</loc>
+    <lastmod>2017-04-22T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   

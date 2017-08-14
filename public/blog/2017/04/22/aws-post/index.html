@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Have Jupyter running on AWS even when you&#39;re not there!</title>
+  <meta name="author" content="" />
+
+  
+  <meta name="keywords" content="devows, hugo, go">	
+  
+
+  
+  <meta name="description" content="Site template made by devcows using hugo">	
+  
+
+  <meta name="generator" content="Hugo 0.25.1" />
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  
+  <link href="/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+
+  
+  <link href="/css/custom.css" rel="stylesheet">
+
+  
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+  
+
+  <link href="/css/owl.carousel.css" rel="stylesheet">
+  <link href="/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="DataPlyr">
+
+  
+  <meta property="og:title" content="Have Jupyter running on AWS even when you&#39;re not there!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/blog/2017/04/22/aws-post//" />
+  <meta property="og:image" content="img/logo.png" />
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand home" href="/">
+                    <img src="/img/logo.png" alt="Have Jupyter running on AWS even when you&#39;re not there! logo" class="hidden-xs hidden-sm">
+                    <img src="/img/logo-small.png" alt="Have Jupyter running on AWS even when you&#39;re not there! logo" class="visible-xs visible-sm">
+                    <span class="sr-only">Have Jupyter running on AWS even when you&#39;re not there! - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                      <span class="sr-only">Toggle Navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/">Home</a>
+                    
+                  </li>
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/blog/">Blog</a>
+                    
+                  </li>
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/faq/">About</a>
+                    
+                  </li>
+                  
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Have Jupyter running on AWS even when you&#39;re not there!</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right">April 22, 2017</p>
+
+                        <div id="post-content">
+                          
+
+<h2 id="setup">Setup</h2>
+
+<p>Setting up a Jupyter notebook on an AWS ec2 instance to be able to run even when you close your laptop has to be one of the most useful tools ever! However, there&rsquo;s not enough information online on how to do it.</p>
+
+<p>From bits and pieces from all over the internet, here&rsquo;s how you do it step by step..</p>
+
+<p><strong>Step 1: Setting up SSH</strong>
+Make sure you have an ssh key first.  You can do that by typing in the command line:</p>
+
+<pre><code class="language-commandline">ls ~/.ssh/*id_rsa*
+</code></pre>
+
+<p>If there is not a file there, generate an ssh key by typing</p>
+
+<pre><code class="language-commandline">ssh-keygen -t rsa
+</code></pre>
+
+<p>When asked where to save, save it in:<br />
+<code>/Users/username/.ssh/id_rsa</code></p>
+
+<p><strong>Step 2: Setting up AWS Account</strong>
+ Sign up for an AWS account if you don&rsquo;t have one. If you do, sign in and click on EC2 under the compute tab.</p>
+
+<ul>
+<li>Next click on <code>Network &amp; Security</code></li>
+<li>Click on <code>Key Pairs</code></li>
+<li>Click on <code>Import key pair</code></li>
+<li>Give it a name <code>id_rsa</code></li>
+</ul>
+
+<p>Go on your terminal and type <code>cat ~/.ssh/id_rsa.pub</code></p>
+
+<p>Copy and paste output into the wndow and press Import</p>
+
+<p><strong>Step 3: Create Instance</strong>
+ * Go to Instances. Choose a server(I chose Ubuntu Server)</p>
+
+<ul>
+<li><p>Choose an instance type(Choose t2.micro instance because it&rsquo;s free for a year)</p></li>
+
+<li><p>Click Next:Configure Instance Details:</p></li>
+
+<li><p>Click Next: Add Storage</p></li>
+
+<li><p>Change Size (GIB) from 8 to 30 and keep the rest of the fields the same.</p></li>
+
+<li><p>Click Next: Add Tags</p></li>
+
+<li><p>Click Next: Configure Security Group</p></li>
+
+<li><p>Change or keep network to look like this(You can change your permissions later):</p></li>
+</ul>
+
+<p><img src="/img/aws_permis.png" alt="awspermis" /></p>
+
+<ul>
+<li>Click Review and Launch. Choose an existing key pair. Select id_rsa and check the I acknowledge box.</li>
+</ul>
+
+<p><strong>Step 4: Logging on Instance</strong></p>
+
+<ul>
+<li>Go to Instances and click once on your instance. On the bottom right, there should be a field that said <code>IPv4 Public IP:</code> Copy the IP Address to the right of the field and in your terminal type:
+<br /></li>
+</ul>
+
+<p><code>ssh ubuntu@123.123.123.123</code></p>
+
+<p>The 123.123.123.123 being the IPv4 Public IP that you copied</p>
+
+<ul>
+<li>You may see a message that starts with &ldquo;The Authenticity of host&hellip;&rdquo; Type <code>Yes</code>
+<br /></li>
+</ul>
+
+<p><strong>Step 5: Installing Python and Packages</strong></p>
+
+<ul>
+<li><p>Update Libraries</p>
+
+<pre><code class="language-commandline">sudo apt-get update
+</code></pre></li>
+
+<li><p>Install Python 3</p>
+
+<pre><code class="language-commandline">sudo apt-get install python3 python3-pip
+</code></pre></li>
+
+<li><p>Install Git</p>
+
+<pre><code class="language-commandline">sudo apt-get install git
+</code></pre></li>
+
+<li><p>Install Anaconda</p>
+
+<pre><code class="language-commandline">wget https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh
+</code></pre>
+
+<pre><code class="language-commandline">sudo bash Anaconda3-4.3.1-Linux-x86_64.sh
+</code></pre></li>
+</ul>
+
+<pre><code class="language-commandline">export PATH=~/anaconda3/bin:$PATH
+</code></pre>
+
+<pre><code class="language-commandline">conda update conda
+</code></pre>
+
+<ul>
+<li><p>Fix Permissions if it doesn&rsquo;t work</p>
+
+<pre><code class="language-commandline">sudo chown -R ubuntu /home/ubuntu/anaconda3 
+sudo chmod -R +x /home/ubuntu/anaconda3
+</code></pre></li>
+
+<li><p>Install Jupyter</p>
+
+<pre><code class="language-commandline">conda install jupyter
+</code></pre></li>
+
+<li><p>Install Tmux  (This allows Jupyter to keep on running)</p>
+
+<pre><code class="language-commandline">sudo apt-get install -y tmux
+</code></pre></li>
+</ul>
+
+<p><strong>Step 6: Running Jupyter</strong></p>
+
+<ul>
+<li><p>Create a new tmux instance that runs all the time</p></li>
+
+<li><p>This Command shows active terminals</p>
+
+<pre><code class="language-commandline">tmux ls
+</code></pre></li>
+
+<li><p>Create new terminal(I called mine jup)</p>
+
+<pre><code class="language-commandline">tmux new -s jup
+</code></pre></li>
+
+<li><p>Type in the tmux screen:</p>
+
+<pre><code class="language-commandline">jupyter notebook --no-browser
+</code></pre></li>
+
+<li><p>DONT CLOSE YOUR AWS TERMINAL
+Now on your local computer open up a new terminal and type in (ip is your public Ipv4 from before):</p></li>
+</ul>
+
+<pre><code class="language-commandline">ssh -NL 8157:localhost:8888 ubuntu@123.123.123
+</code></pre>
+
+<ul>
+<li><p>On your local computer go on a web browser and type in localhost:8157</p></li>
+
+<li><p>Copy and paste your token from your ec2 instance into the password or token field. Only copy after the &ldquo;token=&rdquo;
+It should look something like this</p>
+
+<pre><code class="language-commandline">http://localhost:8888/?token=349hg3894gh3489gj398ggg45g
+</code></pre></li>
+
+<li><p>If you&rsquo;re on a mac on the ec2 instance, type control + b d to detach from the tmux. You might have to practice a couple times. I usual hold control and b. Quickly let go and click d. Never type exit on a tmux screen otherwise you will lose your running jupyter notebook. You may close your aws instance now by typing exit after you&rsquo;ve detached from your tmux.</p></li>
+</ul>
+
+<p>Now you can close your your laptop, have your computations running, go wherever and your jupyter notebook will be running. If you ever want to access your notebook you don&rsquo;t have to login to your instance. All you have to do type:</p>
+
+<pre><code class="language-commandline">ssh -NL 8157:localhost:8888 ubuntu@123.123.123
+</code></pre>
+
+<p>on your local terminal. Go on localhost:8157 in a browser and your jupyter notebooks will be there!</p>
+
+                        </div>
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "Mcarrie30" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Search</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" results="0" class="form-control" placeholder="Search">
+                <input type="hidden" name="q" value="site:/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Categories</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            <li><a href="/categories/exploratory-analysis">exploratory-analysis (1)</a>
+            </li>
+            
+            <li><a href="/categories/machine-learning">machine-learning (1)</a>
+            </li>
+            
+            <li><a href="/categories/metis">metis (1)</a>
+            </li>
+            
+            <li><a href="/categories/tutorial">tutorial (1)</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+      <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            <li><a href="/tags/aws"><i class="fa fa-tags"></i> aws</a>
+            </li>
+            
+            <li><a href="/tags/jupyter"><i class="fa fa-tags"></i> jupyter</a>
+            </li>
+            
+            <li><a href="/tags/kaggle"><i class="fa fa-tags"></i> kaggle</a>
+            </li>
+            
+            <li><a href="/tags/metis"><i class="fa fa-tags"></i> metis</a>
+            </li>
+            
+            <li><a href="/tags/python"><i class="fa fa-tags"></i> python</a>
+            </li>
+            
+            <li><a href="/tags/ridge-regression"><i class="fa fa-tags"></i> ridge-regression</a>
+            </li>
+            
+            <li><a href="/tags/scraping"><i class="fa fa-tags"></i> scraping</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <div class="container">
+
+        
+
+        <div class="col-md-4 col-sm-6">
+
+             
+            <h4>Recent posts</h4>
+
+            <div class="blog-entries">
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="/blog/2017/04/22/aws-post/">
+                          
+                            <img src="/img/banners/pic5.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="/blog/2017/04/22/aws-post/">Have Jupyter running on AWS even when you&#39;re not there!</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="/blog/2017/04/21/basketball-chemistry/">
+                          
+                            <img src="/img/banners/pic3.jpeg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="/blog/2017/04/21/basketball-chemistry/">What is Chemistry?</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="/blog/2017/04/20/firstkernel/">
+                          
+                            <img src="/img/banners/pic4.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="/blog/2017/04/20/firstkernel/">Who is the Murderer? (Exploratory Analysis)</a></h5>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+             
+
+        </div>
+        
+
+        
+        <div class="col-md-4 col-sm-6">
+
+          <h4>Contact</h4>
+
+            <strong>Michael Carrie</strong>
+        <br>New York, NY
+        <br>United States
+        <br>
+        <br>
+        <br>
+      </p>
+      
+
+
+            <a href="/contact" class="btn btn-small btn-template-main">Go to contact page</a>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright (c) 2016 - 2017, Mcarrie; all rights reserved.</p>
+            
+            <p class="pull-right">
+              Template by <a href="http://bootstrapious.com/free-templates">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-102497772-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyC9Epsi-YwskbJqb8AKuW4Bit8HVw46qRc&v=3.exp"></script>
+
+<script src="/js/hpneo.gmaps.js"></script>
+<script src="/js/gmaps.init.js"></script>
+<script src="/js/front.js"></script>
+
+
+<script src="/js/owl.carousel.min.js"></script>
+
+
+  </body>
+</html>

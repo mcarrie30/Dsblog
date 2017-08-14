@@ -1,16 +1,12 @@
 +++
-author = "Michael Carrie"
-categories = ["Python"]
-date = "2017-04-20"
-description = "Exploratory Analysis"
-featured = "pic4.jpg"
-featuredalt = ""
-featuredpath = "date"
-linktitle = ""
 title = "Who is the Murderer? (Exploratory Analysis)"
-type = "post"
-
+date = "2017-04-20T21:49:20+02:00"
+tags = ["Python", "Kaggle"]
+categories = ["Exploratory Analysis"]
+banner = "img/banners/pic4.jpg"
+author = "Michael Carrie"
 +++
+
 
 Below is my first exploratory analysis Kernel that I submitted on Kaggle.
 
@@ -116,7 +112,7 @@ cbar.set_ticklabels(['0%', '25%', '50%',  '75%', '100%'])
 ```
 
 
-![png](/photos/Murderer_Unveiled_Exploratory_files/Murderer_Unveiled_Exploratory_13_0.png)
+![png](/img/Murderer_Unveiled_Exploratory_files/Murderer_Unveiled_Exploratory_13_0.png)
 
 
 
@@ -132,7 +128,7 @@ cbar.set_ticklabels(['0%', '25%', '50%',  '75%', '100%'])
 ```
 
 
-![png](/photos/Murderer_Unveiled_Exploratory_files/Murderer_Unveiled_Exploratory_14_0.png)
+![png](/img/Murderer_Unveiled_Exploratory_files/Murderer_Unveiled_Exploratory_14_0.png)
 
 
 
@@ -148,7 +144,7 @@ cbar.set_ticklabels(['0%', '25%', '50%',  '75%', '100%'])
 ```
 
 
-![png](/photos/Murderer_Unveiled_Exploratory_files/Murderer_Unveiled_Exploratory_15_0.png)
+![png](/img/Murderer_Unveiled_Exploratory_files/Murderer_Unveiled_Exploratory_15_0.png)
 
 
 What about What weapon did Males vs Female use?
@@ -166,7 +162,7 @@ cbar.set_ticklabels(['0%', '25%', '50%',  '75%', '100%'])
 ```
 
 
-![png](/photos/Murderer_Unveiled_Exploratory_files/Murderer_Unveiled_Exploratory_17_0.png)
+![png](/img/Murderer_Unveiled_Exploratory_files/Murderer_Unveiled_Exploratory_17_0.png)
 
 
 It seems as Handguns, Knife, and Blunt Objects were the most used for both genders
@@ -184,7 +180,7 @@ cbar.set_ticklabels(['0%', '25%', '50%',  '75%', '100%'])
 ```
 
 
-![png](/photos/Murderer_Unveiled_Exploratory_files/Murderer_Unveiled_Exploratory_19_0.png)
+![png](/img/Murderer_Unveiled_Exploratory_files/Murderer_Unveiled_Exploratory_19_0.png)
 
 
 However, the ratio of each method used compared to the other gender shows that Female perpetrators used *Drowning* as a means of killing the most frequently. Second was *Poison*, and third was *suffocation*.

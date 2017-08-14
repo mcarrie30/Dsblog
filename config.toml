@@ -1,116 +1,148 @@
-baseurl = "http://dataplyr.com/"
-languageCode = "en-us"
+baseurl = "https://dataplyr.com"
 title = "DataPlyr"
-theme = "hugo-future-imperfect"
-preserveTaxonomyNames = true
-paginate = 3
-disqusShortname = ""
+theme = "hugo-universal-theme"
+languageCode = "en-us"
+# Site language. Available translations in the theme's `/i18n` directory.
+defaultContentLanguage = "en"
+# Enable comments by entering your Disqus shortname
+disqusShortname = "Mcarrie30"
+# Enable Google Analytics by entering your tracking code
 googleAnalytics = "UA-102497772-1"
 
-[params]
-    # Sets the meta tag description, usually reserved for the main page
-    description          = "HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo"
-    # This will appear on the top left of the navigation bar
-    navbarTitle          = "DataPlyr"
-    # Social media buttons that appear on the sidebar
-    socialAppearAtTop    = true
-    socialAppearAtBottom = true
-    # set this to the section name if section is not post
-    viewMorePostLink     = "/blog/"
+# Define the number of posts per page
+paginate = 10
 
-# Optional Params
-    categoriesByCount    = true
-    includeReadingTime   = true
-    # The set of favicons used are based on the write-up from this link:
-    # https://github.com/audreyr/favicon-cheat-sheet
-    # Please see the favicon partial template for more information
-    loadFavicon          = false
-    faviconVersion       = ""
+[menu]
 
-    # Load custom CSS or JavaScript files. This replaces the deprecated params
-    # minifiedFilesCSS and minifiedFilesJS. The variable is an array so that you
-    # can load multiple files if necessary. You can also load the standard theme
-    # files by adding the value, "default".
-    # customCSS            = ["default", "/path/to/file"]
-    # customJS             = ["default", "/path/to/file"]
+# Main menu
 
-    # Loading min files for exampleSite
-    customCSS            = ["/css/main.min.css"]
-    customJS             = ["/js/main.min.js"]
-
-# parms.intro will appear on the sidebar
-# This is optional, but it's suggested to use
-[params.intro]
-    header    = "DataPlyr"
-
-    paragraph = "Data Science Blog"
-
-    about     = "Michael is a Data Scientist with a demonstrated history of working with financial data. Skilled in R, Statistics, Python, Data Analysis, and Machine Learning. Strong professional analytical skills with a Bachelor's degree focused in Sociology from State University of New York College at Geneseo."
-
-# This will also appear on the sidebar.
-# A width of less than 100px is recommended
-# This is optional
-[params.intro.pic]
-    src       = "/img/main/logo.jpg"
-    # modify your picture in the shape of a circle or
-    # future imperfect's hexagonal shape
-    circle    = false
-    imperfect = true
-    width     = ""
-    alt       = "Hugo Future Imperfect"
-
-# Adjust the amount of recent posts on the sidebar.
-# This is optional. The default value 5 will be used
-[params.postAmount]
-    sidebar = 5
-
-# Set up your menu items in the navigation bar
-# You can use identifier to prepend a font awesome icon to your text
 [[menu.main]]
-    name = "Blog"
-    url = "/blog"
-    identifier = "fa fa-newspaper-o"
+    name = "Home"
+    url  = "/"
     weight = 1
 
 [[menu.main]]
-    name = "Categories"
-    url = "/categories"
+    name = "Blog"
+    url  = "/blog/"
     weight = 2
 
 [[menu.main]]
     name = "About"
-    url = "/about"
+    identifier = "faq"
+    url  = "/faq/"
     weight = 3
 
-# Insert your username and the icon will apear on the page as long as
-# socialAppearAtTop or socialAppearAtBottom is set to true in the params area
-# The social media icons will appear on the sidebar
-[social]
-    github          = "mcarrie30"
-    bitbucket       = ""
-    jsfiddle        = ""
-    codepen         = ""
-    foursquare      = ""
-    dribbble        = ""
-    deviantart      = ""
-    behance         = ""
-    flickr          = ""
-    instagram       = ""
-    youtube         = ""
-    vimeo           = ""
-    vine            = ""
-    medium          = ""
-    wordpress       = ""
-    tumblr          = ""
-    xing            = ""
-    linkedin        = "michaelcarrie"
-    slideshare      = ""
-    stackoverflow   = ""
-    reddit          = ""
-    pinterest       = ""
-    googleplus      = ""
-    facebook        = ""
-    facebook_admin  = ""
-    twitter_domain  = ""
-    twitter         = ""
-    email           = ""
+
+# Top bar social links menu
+
+[[menu.topbar]]
+    weight = 1
+    name = "GitHub"
+    url = "https://github.com/mcarrie30"
+    pre = "<i class='fa fa-2x fa-github'></i>"
+
+
+[[menu.topbar]]
+    weight = 2
+    name = "Email"
+    url = "mailto:mcarrie30@gmail.com"
+    pre = "<i class='fa fa-2x fa-envelope'></i>"
+
+[params]
+    viewMorePostLink = "/blog/"
+    author = "DevCows"
+    defaultKeywords = ["devows", "hugo", "go"]
+    defaultDescription = "Site template made by devcows using hugo"
+
+    # Google Maps API key (if not set will default to not passing a key.)
+    googleMapsApiKey = "AIzaSyC9Epsi-YwskbJqb8AKuW4Bit8HVw46qRc"
+
+    # Style options: default (light-blue), blue, green, marsala, pink, red, turquoise, violet
+    style = "default"
+
+    # Since this template is static, the contact form uses www.formspree.io as a
+    # proxy. The form makes a POST request to their servers to send the actual
+    # email. Visitors can send up to a 1000 emails each month for free.
+    #
+    # What you need to do for the setup?
+    #
+    # - set your email address under 'email' below
+    # - upload the generated site to your server
+    # - send a dummy email yourself to confirm your account
+    # - click the confirm link in the email from www.formspree.io
+    # - you're done. Happy mailing!
+    #
+    # Enable the contact form by entering your Formspree.io email
+    email = "mcarrie30@gmail.com"
+
+    copyright = "Copyright (c) 2016 - 2017, Mcarrie; all rights reserved."
+
+    # Format dates with Go's time formatting
+    date_format = "January 2, 2006"
+
+    logo = "img/logo.png"
+    address = """<p><strong>Michael Carrie</strong>
+        <br>New York, NY
+        <br>United States
+        <br>
+        <br>
+        <br>
+      </p>
+      """
+    latitude = "40.743799"
+    longitude = "-73.98517099999998"
+
+[Permalinks]
+    blog = "/blog/:year/:month/:day/:filename/"
+
+# Enable or disable top bar with social icons
+[params.topbar]
+    enable = true
+    text = ""
+
+# Enable and disable widgets for the right sidebar
+[params.widgets]
+    categories = true
+    tags = true
+    search = true
+
+[params.carousel]
+    enable = false
+    # All carousel items are defined in their own files. You can find example items
+    # at 'exampleSite/data/carousel'.
+    # For more informtion take a look at the README.
+
+[params.features]
+    enable = false
+    # All features are defined in their own files. You can find example items
+    # at 'exampleSite/data/features'.
+    # For more informtion take a look at the README.
+
+[params.testimonials]
+    enable = false
+    # All testimonials are defined in their own files. You can find example items
+    # at 'exampleSite/data/testimonials'.
+    # For more informtion take a look at the README.
+    title = "Testimonials"
+    subtitle = "We have worked with many clients and we always like to hear they come out from the cooperation happy and satisfied. Have a look what our clients said about us."
+
+[params.see_more]
+    enable = true
+    icon = "fa fa-file-code-o"
+    title = "DataPlyr"
+    subtitle = "Data Science Tutorials and Tools"
+    link_url = "/blog"
+    link_text = "View All Blog Entries"
+
+[params.clients]
+    enable = false
+    # All clients are defined in their own files. You can find example items
+    # at 'exampleSite/data/clients'.
+    # For more informtion take a look at the README.
+    title = "Our Clients"
+    subtitle = ""
+
+[params.recent_posts]
+    enable = true
+    title = "Blog Entries"
+    subtitle = ""

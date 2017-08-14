@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kaggle on DataPlyr</title>
+    <link>/tags/kaggle/</link>
+    <description>Recent content in Kaggle on DataPlyr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2016 - 2017, Mcarrie; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 20 Apr 2017 21:49:20 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/kaggle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Who is the Murderer? (Exploratory Analysis)</title>
+      <link>/blog/2017/04/20/firstkernel/</link>
+      <pubDate>Thu, 20 Apr 2017 21:49:20 +0200</pubDate>
+      
+      <guid>/blog/2017/04/20/firstkernel/</guid>
+      <description>Below is my first exploratory analysis Kernel that I submitted on Kaggle.
+First Kernel
+Hello! I plan to look at solved murders. Eventually, I plan to make a prediction on the relationship of the perpetrator to the victim; however, this kernel I will explore perpetrator sex to the victim, the weapon used on the victim
+import numpy as np import pandas as pd import seaborn as sns import matplotlib.pyplot as plt pd.</description>
+    </item>
+    
+  </channel>
+</rss>

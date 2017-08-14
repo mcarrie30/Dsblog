@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Metis on DataPlyr</title>
+    <link>/tags/metis/</link>
+    <description>Recent content in Metis on DataPlyr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2016 - 2017, Mcarrie; all rights reserved.</copyright>
+    <lastBuildDate>Fri, 07 Apr 2017 13:39:46 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/metis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First Week at Metis</title>
+      <link>/blog/2017/04/07/first_post/</link>
+      <pubDate>Fri, 07 Apr 2017 13:39:46 +0200</pubDate>
+      
+      <guid>/blog/2017/04/07/first_post/</guid>
+      <description>Metis My first week as a student Data Scientist at Metis NYC has been challenging but also, incredible! I had high expectations coming in (after reading so many reviews); however, Metis has exceeded my expectations.
+Since starting, my routine has been:
+6:15 - 8:00 Wake up, Walk Dog, Do some coding
+8:00 - 9:00 Take the LIRR to NYC
+9:00 - 9:30 Do some code until lectures start
+9:30 - 12 Lectures</description>
+    </item>
+    
+  </channel>
+</rss>

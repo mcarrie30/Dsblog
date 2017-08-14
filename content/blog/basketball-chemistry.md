@@ -1,15 +1,9 @@
 +++
-author = "Michael Carrie"
-categories = ["Python", "Shiny"]
-date = "2017-04-24"
-description = "Who has the best Chemistry in the NBA?"
-featured = "pic3.jpeg"
-featuredalt = ""
-featuredpath = "date"
-linktitle = ""
 title = "What is Chemistry?"
-type = "post"
-
+date = "2017-04-21T13:47:08+02:00"
+tags = ["Scraping", "Ridge Regression"]
+categories = ["Machine Learning"]
+banner = "img/banners/pic3.jpeg"
 +++
 
 
@@ -36,14 +30,14 @@ After scraping thousands of rows, and merging different sources, it was now time
 
 My first step was to look at multicollinearity because I knew many of the variables would be correlated. I made a heatmap using **seaborn** to show this.
 
-![w2heatmap](/photos/heatmapweek2.png)
+![w2heatmap](/img/heatmapweek2.png)
 
 I tried 3 types(**linearcv**, **lassocv** and **ridgecv**) of regression formulas using **sklearn**. Ridge seemed to work the best because it set a penalty on large coefficients.
 
 My R-Squared was significantly better and I plotted using **Plotly**(interactive chart) actual Win Percentage vs Predicted
 
 
-![w2heatmap](/photos/predictplotweek2.png)
+![w2heatmap](/img/predictplotweek2.png)
 
 All the outliers in the right were the Golden State Warriors, which I expected because they have been amazing. One interesting point I did find was that the uppermost right point was Javale McGee. This surprised me because his stats don't pop out. His stats are nothing special. However, According to the data he is a phenomenal teammate. Attributes that Javale Mcgee are good at are not represented in traditional NBA stats. NBA stats don't account for hustle, quick on defense, etc. 
 
@@ -51,7 +45,7 @@ Overall, I thought my project did a great job of showing how team chemistry can 
 
 Also, if anyone would like to see the data and one of the plots, I made a quick dashboard using **Shiny**, **DT**,**Plotly** and **R**. Go check it out at [Project Luther Dashboard](https://mcarrie30.shinyapps.io/project_benson/)!
 
-![shinyweek2](/photos/shinyweek2.png)
+![shinyweek2](/img/shinyweek2.png)
 
 
 
